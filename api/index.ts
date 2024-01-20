@@ -58,3 +58,14 @@ app.post('/addEmployee', async (req: any, res: any) => {
     console.log(error);
   }
 });
+
+//endpoint to fetch all user
+
+app.get('/employees', async (req: any, res: any) => {
+  try {
+    const employees = await EmployeeData.find();
+    res.status(200).json(employees);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to Retrieve the employees' });
+  }
+});
