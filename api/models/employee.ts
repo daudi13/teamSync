@@ -44,6 +44,6 @@ const employeeSchema = new mongo.Schema({
   },
 });
 
-const Employee = mongoose.model('Employee', employeeSchema);
+const Employee = mongo.model('Employee', employeeSchema);
 
 module.exports = Employee;

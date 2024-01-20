@@ -4,11 +4,12 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import MidSectionBtns from './components/MidSectionBtns';
+import { useRouter } from 'expo-router';
 
 const home = () => {
+  const route = useRouter();
   return (
     <ScrollView style={styles.wrapper}>
-      <StatusBar hidden />
       <LinearGradient colors={['#7f7fd5', '#e9e4f0']} style={styles.container}>
         <View style={styles.header}>
           <View style={styles.headerItems}>
@@ -18,13 +19,13 @@ const home = () => {
           </View>
         </View>
         <View style={styles.headerButtons}>
-          <TouchableOpacity style={styles.listButton}>
+          <TouchableOpacity style={styles.listButton} onPress={() => route.push('/EmployeeList')}>
             <View style={styles.iconContainer}>
               <Ionicons name="ios-people-sharp" size={24} color="black" />
             </View>
             <Text>Employee List</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.listButton}>
+          <TouchableOpacity style={styles.listButton} onPress={() => route.push('/MarkAttendance')}>
             <View style={styles.iconContainer}>
               <Ionicons name="ios-people-sharp" size={24} color="black" />
             </View>

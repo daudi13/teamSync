@@ -22,3 +22,39 @@ mongoose
 app.listen(port, () => {
   console.log('server is running on port 8000');
 });
+
+const EmployeeData = require('./models/employee');
+
+//endpoint to register an employee
+app.post('/addEmployee', async (req: any, res: any) => {
+  try {
+    const {
+      employeeId,
+      employeeName,
+      designation,
+      joiningDate,
+      dateOfBirth,
+      salary,
+      activeEmployee,
+      phoneNumber,
+      address,
+    } = req.body;
+
+    const newEmployee = new EmployeeData({
+      employeeId,
+      employeeName,
+      designation,
+      joiningDate,
+      dateOfBirth,
+      salary,
+      activeEmployee,
+      phoneNumber,
+      address,
+    });
+    await newEmployee.save();
+
+    res.status(201).json({ message: 'Employee saved successfully', employee: newEmployee });
+  } catch (error) {
+    console.log(error);
+  }
+});
