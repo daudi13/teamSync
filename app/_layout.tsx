@@ -8,6 +8,7 @@ export default function Layout() {
       <Stack.Screen name="EmployeeList" />
       <Stack.Screen name="MarkAttendance" />
       <Stack.Screen name="CreateUser" />
+      <Stack.Screen name="[user]" />
     </Stack>
   );
 }

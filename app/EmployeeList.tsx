@@ -28,24 +28,22 @@ const EmployeeList = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.header}>
-          <Ionicons name="arrow-back-outline" size={24} color="black" />
-          <View style={styles.searchBar}>
-            <Feather name="search" size={24} color="grey" />
-            <TextInput
-              placeholder="search"
-              value={text}
-              onChangeText={(text) => setText(text)}
-              style={styles.input}
-            />
-          </View>
-          <TouchableOpacity style={styles.addUserBtn} onPress={() => route.push('/CreateUser')}>
-            <AntDesign name="adduser" size={24} color="black" />
-          </TouchableOpacity>
+      <View style={styles.header}>
+        <Ionicons name="arrow-back-outline" onPress={() => route.back()} size={24} color="black" />
+        <View style={styles.searchBar}>
+          <Feather name="search" size={24} color="grey" />
+          <TextInput
+            placeholder="search"
+            value={text}
+            onChangeText={(text) => setText(text)}
+            style={styles.input}
+          />
         </View>
-        <Results input={text} employee={employees} />
-      </ScrollView>
+        <TouchableOpacity style={styles.addUserBtn} onPress={() => route.push('/CreateUser')}>
+          <AntDesign name="adduser" size={24} color="black" />
+        </TouchableOpacity>
+      </View>
+      <Results input={text} employee={employees} />
     </SafeAreaView>
   );
 };
